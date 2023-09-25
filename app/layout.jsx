@@ -1,12 +1,11 @@
-"use client";
-
-import { Provider } from "react-redux";
 import Link from "next/link";
 import "./style.css";
 import "@unocss/reset/tailwind.css";
-import store from "@/redux/configureStore";
+import { fetchUsers } from "@/lib/helpers";
+import NameProvider from "@/lib/components/NameProvider";
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const name = await fetchUsers();
   return (
     <html lang="en">
       <body>
@@ -28,7 +27,9 @@ export default function RootLayout({ children }) {
             </nav>
           </header>
           <main className="flex flex-col items-center min-h-screen md:mt-20 md:mb-40">
-            <Provider store={store}>{children}</Provider>
+            <NameProvider name={name}>
+              {children}
+            </NameProvider>
           </main>
           <footer className="fixed bottom-2 right-2">
             Copyright ©2023 Ankwallet
