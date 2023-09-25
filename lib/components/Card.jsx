@@ -1,12 +1,13 @@
+"use client";
+
 import { useDispatch } from "react-redux";
 import {
   deleteCard,
   setActiveCard,
   setAllCardsToInactive,
 } from "../../redux/ewalletSlice";
-import { FetchUsers } from "../helpers";
 
-export default async function Card({
+export default function Card({
   number,
   validThru,
   vendor,
@@ -14,9 +15,10 @@ export default async function Card({
   i,
   active,
   allCards,
+  firstName,
+  lastName,
 }) {
   const dispatch = useDispatch();
-  const { firstName, lastName } = await FetchUsers();
   const cardParts = Array.from({ length: 4 }, (_, index) =>
     number.toString().slice(index * 4, (index + 1) * 4)
   );
