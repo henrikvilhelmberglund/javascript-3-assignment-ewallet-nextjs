@@ -18,6 +18,7 @@
     "react-redux": "^8.1.2"
   },
   "devDependencies": {
-    "@unocss/postcss": "^0.56.2"
+    "@unocss/postcss": "^0.56.2",
+    "unocss": "^0.56.2"
   }
 }
