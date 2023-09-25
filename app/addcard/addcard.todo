@@ -1,6 +1,7 @@
 ✔ add form containing: @done(23-09-18 16:12)
-  - card number
-  - first name last name (filled in from API and not editable)
-  - valid thru
-  - ccv
-  - vendor: VISA, Master Express, Forex etc but make up new ones 
+  ✔ card number @done(23-09-25 22:32)
+  ✔ first name last name (filled in from API and not editable) @done(23-09-25 22:32)
+  ✔ valid thru @done(23-09-25 22:32)
+  ✔ ccv @done(23-09-25 22:32)
+  ✔ vendor: VISA, Master Express, Forex etc but make up new ones @done(23-09-25 22:32)
+☐ fix numbers looking strange when skipping some numbers
