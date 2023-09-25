@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import "./style.css";
-
-// TODO fix redux provider in Next
-// import { Provider } from "react-redux";
+import "@unocss/reset/tailwind.css";
 
 export default function RootLayout({ children }) {
   return (
