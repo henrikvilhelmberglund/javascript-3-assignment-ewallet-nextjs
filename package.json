@@ -18,6 +18,11 @@
     "react-redux": "^8.1.2"
   },
   "devDependencies": {
+    "@iconify-json/devicon": "^1.1.15",
+    "@iconify-json/flat-color-icons": "^1.1.7",
+    "@iconify-json/lucide": "^1.1.129",
+    "@iconify-json/noto": "^1.1.12",
+    "@julr/unocss-preset-forms": "^0.0.5",
     "@unocss/postcss": "^0.56.2",
     "@unocss/reset": "^0.56.2",
     "unocss": "^0.56.2"
