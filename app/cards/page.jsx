@@ -1,3 +1,5 @@
+"use client";
+
 import { useDispatch, useSelector } from "react-redux";
 import Card from "/lib/components/Card";
 import { deleteCard } from "../../redux/ewalletSlice";
@@ -33,12 +35,11 @@ export default function Index() {
               </p>
             </div>
           ) : (
-              <div className="flex flex-col items-center gap-4">
-                
-            <Link to="/addcard" className="btn-green">
-              Add new card
-            </Link>
-              </div>
+            <div className="flex flex-col items-center gap-4">
+              <Link href="/addcard" className="btn-green">
+                Add new card
+              </Link>
+            </div>
           )}
         </div>
         <p>Inactive cards:</p>
