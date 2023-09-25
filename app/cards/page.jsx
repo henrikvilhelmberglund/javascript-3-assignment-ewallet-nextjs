@@ -10,9 +10,6 @@ export default function Index() {
   const { cards } = useSelector((store) => store.ewallet);
   const dispatch = useDispatch();
   const { firstName, lastName } = useContext(NameContext);
-  console.log(name);
-  // console.log(firstName)
-  // console.log(lastName)
 
   return (
     <>
