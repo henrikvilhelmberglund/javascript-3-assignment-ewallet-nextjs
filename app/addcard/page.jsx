@@ -5,6 +5,7 @@ import { createCard, updateCardPreview } from "../../redux/ewalletSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "/lib/components/Card";
 import { NameContext } from "@/lib/components/NameProvider";
+import { useRouter } from "next/navigation";
 
 export default function Index() {
   const { firstName, lastName } = useContext(NameContext);
@@ -14,6 +15,7 @@ export default function Index() {
   const dispatch = useDispatch();
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
+  const router = useRouter();
 
   return (
     <>
@@ -79,7 +81,7 @@ export default function Index() {
           setMessage("Success! Navigating to cards...");
           setTimeout(() => {
             setMessage("");
-            navigate("/cards");
+            router.push("/cards");
           }, 1500);
         }}
         className="mt-12 p-4 bg-white rounded-md flex flex-col gap-3"
