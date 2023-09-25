@@ -1,8 +1,10 @@
-// import { Link, Outlet, useLoaderData, } from "react-router-dom";
+"use client";
 
+import { Provider } from "react-redux";
 import Link from "next/link";
 import "./style.css";
 import "@unocss/reset/tailwind.css";
+import store from "@/redux/configureStore";
 
 export default function RootLayout({ children }) {
   return (
@@ -26,8 +28,7 @@ export default function RootLayout({ children }) {
             </nav>
           </header>
           <main className="flex flex-col items-center min-h-screen md:mt-20 md:mb-40">
-            {children}
-            {/* <Outlet context={data} /> */}
+            <Provider store={store}>{children}</Provider>
           </main>
           <footer className="fixed bottom-2 right-2">
             Copyright ©2023 Ankwallet
