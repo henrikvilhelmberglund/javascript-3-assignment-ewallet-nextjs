@@ -1,15 +1,18 @@
 "use client";
-
 import { useDispatch, useSelector } from "react-redux";
 import Card from "/lib/components/Card";
 import { deleteCard } from "../../redux/ewalletSlice";
-import React from "react";
-import { FetchUsers } from "@/lib/helpers";
+import React, { useContext } from "react";
 import Link from "next/link";
+import { NameContext } from "@/lib/components/NameProvider";
 
 export default function Index() {
   const { cards } = useSelector((store) => store.ewallet);
   const dispatch = useDispatch();
+  const { firstName, lastName } = useContext(NameContext);
+  console.log(name);
+  // console.log(firstName)
+  // console.log(lastName)
 
   return (
     <>
@@ -21,7 +24,13 @@ export default function Index() {
         {cards
           ?.filter((card) => card.active === true)
           .map((card, i) => (
-            <Card {...card} allCards={false} i={i} key={i}></Card>
+            <Card
+              {...card}
+              firstName={firstName}
+              lastName={lastName}
+              allCards={false}
+              i={i}
+              key={i}></Card>
           ))}
 
         <div className="">
@@ -57,7 +66,13 @@ export default function Index() {
                 } i-lucide-x absolute top-[${
                   i * 40 - 10
                 }px] z-100 -left-8 w-16 h-16 bg-red-500`}></button>
-              <Card {...card} allCards={true} i={i} key={i}></Card>
+              <Card
+                {...card}
+                firstName={firstName}
+                lastName={lastName}
+                allCards={true}
+                i={i}
+                key={i}></Card>
             </article>
           ))}
         </div>

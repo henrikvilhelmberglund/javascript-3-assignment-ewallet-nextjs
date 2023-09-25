@@ -1,16 +1,17 @@
-import { useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+"use client";
+
+import { useContext, useState } from "react";
 import { createCard, updateCardPreview } from "../../redux/ewalletSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Card from "../_components/Card";
+import Card from "/lib/components/Card";
+import { NameContext } from "@/lib/components/NameProvider";
 
 export default function Index() {
-  const { firstName, lastName } = useOutletContext();
+  const { firstName, lastName } = useContext(NameContext);
   const { cardPreview } = useSelector((store) => store.ewallet);
   const { cards } = useSelector((store) => store.ewallet);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 

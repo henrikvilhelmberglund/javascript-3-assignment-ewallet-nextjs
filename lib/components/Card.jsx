@@ -6,6 +6,8 @@ import {
   setActiveCard,
   setAllCardsToInactive,
 } from "../../redux/ewalletSlice";
+import { NameContext } from "./NameProvider";
+import { useContext } from "react";
 
 export default function Card({
   number,
@@ -15,9 +17,8 @@ export default function Card({
   i,
   active,
   allCards,
-  firstName,
-  lastName,
 }) {
+  const { firstName, lastName } = useContext(NameContext);
   const dispatch = useDispatch();
   const cardParts = Array.from({ length: 4 }, (_, index) =>
     number.toString().slice(index * 4, (index + 1) * 4)
