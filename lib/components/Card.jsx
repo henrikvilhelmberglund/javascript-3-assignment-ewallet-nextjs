@@ -44,6 +44,7 @@ export default function Card({
   return (
     <button
       className="relative"
+      title={`CCV is ${ccv}`}
       onClick={() => {
         if (!active) {
           dispatch(setAllCardsToInactive());
