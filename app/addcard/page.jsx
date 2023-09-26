@@ -36,6 +36,20 @@ export default function Index() {
     }
   }
 
+  function getFormValues() {
+    const number1 = document.querySelector("#number-1").value;
+    const number2 = document.querySelector("#number-2").value;
+    const number3 = document.querySelector("#number-3").value;
+    const number4 = document.querySelector("#number-4").value;
+    const vendor = document.querySelector("#vendor").value;
+    const ccv = document.querySelector("#ccv").value;
+    const month = document.querySelector("#month").value;
+    const year = document.querySelector("#year").value;
+    const validThru = `${month}/${year}`;
+
+    return { number1, number2, number3, number4, vendor, ccv, validThru };
+  }
+
   return (
     <>
       <h1 className="text-5xl">Add card</h1>
@@ -44,15 +58,8 @@ export default function Index() {
       <form
         onChange={(e) => {
           // TODO DRY
-          const number1 = document.querySelector("#number-1").value;
-          const number2 = document.querySelector("#number-2").value;
-          const number3 = document.querySelector("#number-3").value;
-          const number4 = document.querySelector("#number-4").value;
-          const vendor = document.querySelector("#vendor").value;
-          const ccv = document.querySelector("#ccv").value;
-          const month = document.querySelector("#month").value;
-          const year = document.querySelector("#year").value;
-          const validThru = `${month}/${year}`;
+          const { number1, number2, number3, number4, vendor, ccv, validThru } =
+            getFormValues();
           const number =
             number1.padEnd(4, "*") +
             number2.padEnd(4, "*") +
@@ -73,15 +80,8 @@ export default function Index() {
         }}
         onSubmit={(e) => {
           e.preventDefault();
-          const number1 = document.querySelector("#number-1").value;
-          const number2 = document.querySelector("#number-2").value;
-          const number3 = document.querySelector("#number-3").value;
-          const number4 = document.querySelector("#number-4").value;
-          const vendor = document.querySelector("#vendor").value;
-          const ccv = document.querySelector("#ccv").value;
-          const month = document.querySelector("#month").value;
-          const year = document.querySelector("#year").value;
-          const validThru = `${month}/${year}`;
+          const { number1, number2, number3, number4, vendor, ccv, validThru } =
+            getFormValues();
           const number = number1 + number2 + number3 + number4;
           const active = false;
 
