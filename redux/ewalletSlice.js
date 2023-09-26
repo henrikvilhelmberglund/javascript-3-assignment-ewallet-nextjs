@@ -1,4 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+const initialPreviewCard = {
+  number: "****************",
+  validThru: "1/2024",
+  vendor: "DuckCard",
+  ccv: "***",
+  active: true,
+};
 export const getPosts = createAsyncThunk(
   "ewalletSlice/getStartUser",
   async () => {
@@ -20,13 +27,7 @@ const ewalletSlice = createSlice({
       },
     ],
     activeCard: null,
-    cardPreview: {
-      number: "0000000000000000",
-      validThru: "1/2024",
-      vendor: "DuckCard",
-      ccv: 776,
-      active: true,
-    },
+    cardPreview: initialPreviewCard,
   },
   reducers: {
     setActiveCard: (state, action) => {
@@ -46,6 +47,9 @@ const ewalletSlice = createSlice({
     },
     updateCardPreview: (state, action) => {
       state.cardPreview = action.payload;
+    },
+    resetCardPreview: (state, action) => {
+      state.cardPreview = initialPreviewCard;
     },
     deleteCard: (state, action) => {
       state.cards.splice(action.payload, 1);
@@ -72,5 +76,6 @@ export const {
   createCard,
   updateCardPreview,
   deleteCard,
+  resetCardPreview,
 } = ewalletSlice.actions;
 export default ewalletSlice.reducer;
