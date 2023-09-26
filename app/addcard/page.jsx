@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "/lib/components/Card";
 import { NameContext } from "@/lib/components/NameProvider";
 import { useRouter } from "next/navigation";
+import { checkIfValid, getFormValues } from "@/lib/helpers";
 
 export default function Index() {
   const dispatch = useDispatch();
@@ -21,34 +22,6 @@ export default function Index() {
 
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-
-  function checkIfValid(e) {
-    let inputAcceptable = /^\d+$/.test(e.target.value);
-    if (!inputAcceptable && e.target.value) {
-      let savedPos = e.target.selectionStart;
-      e.target.value = e.target.value.replaceAll(/[^0-9]+/g, "");
-      e.target.selectionStart = savedPos - 1;
-      e.target.selectionEnd = savedPos - 1;
-      setError("Only numbers are allowed.");
-      return;
-    } else if (inputAcceptable) {
-      setError("");
-    }
-  }
-
-  function getFormValues() {
-    const number1 = document.querySelector("#number-1").value;
-    const number2 = document.querySelector("#number-2").value;
-    const number3 = document.querySelector("#number-3").value;
-    const number4 = document.querySelector("#number-4").value;
-    const vendor = document.querySelector("#vendor").value;
-    const ccv = document.querySelector("#ccv").value;
-    const month = document.querySelector("#month").value;
-    const year = document.querySelector("#year").value;
-    const validThru = `${month}/${year}`;
-
-    return { number1, number2, number3, number4, vendor, ccv, validThru };
-  }
 
   return (
     <>
@@ -86,7 +59,7 @@ export default function Index() {
           const active = false;
 
           if (cards.length > 3) {
-            setMessage("You have too many cards. Remove a card and try again.");
+            setError("You have too many cards. Remove a card and try again.");
             return;
           }
 
@@ -110,12 +83,12 @@ export default function Index() {
         className="mt-12 p-4 bg-white rounded-md flex flex-col gap-3"
         action="">
         <div className="flex gap-1 relative">
-          <p className="absolute -top-7 text-red-500 left-0">{error}</p>
+          <p className="absolute -top-7 text-red-500 text-xl left-0">{error}</p>
           {Array.from({ length: 4 }).map((_, i) => (
             <input
               key={i}
               onChange={(e) => {
-                checkIfValid(e);
+                checkIfValid(e, setError);
                 if (i === 3) return;
                 if (e.target.value.length === 4) {
                   document.querySelector(`#number-${i + 2}`).focus();
@@ -182,14 +155,14 @@ export default function Index() {
           maxLength="3"
           required
           onChange={(e) => {
-            checkIfValid(e);
+            checkIfValid(e, setError);
           }}
         />
         <div className="mt-8"></div>
         <button className="btn-blue">Submit</button>
         {message ? (
           <div className="flex justify-center">
-            <p className="absolute top-[97%] text-5xl text-white text-center bg-green-500 rounded-lg p-2">
+            <p className="fixed top-[50%] text-5xl text-white text-center bg-green-500 rounded-lg p-2">
               {message}
             </p>
           </div>
