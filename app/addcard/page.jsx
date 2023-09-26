@@ -1,21 +1,40 @@
 "use client";
 
 import { useContext, useState } from "react";
-import { createCard, updateCardPreview } from "../../redux/ewalletSlice";
+import {
+  createCard,
+  resetCardPreview,
+  updateCardPreview,
+} from "../../redux/ewalletSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "/lib/components/Card";
 import { NameContext } from "@/lib/components/NameProvider";
 import { useRouter } from "next/navigation";
 
 export default function Index() {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
   const { firstName, lastName } = useContext(NameContext);
   const { cardPreview } = useSelector((store) => store.ewallet);
   const { cards } = useSelector((store) => store.ewallet);
 
-  const dispatch = useDispatch();
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  const router = useRouter();
+
+  function checkIfValid(e) {
+    let inputAcceptable = /^\d+$/.test(e.target.value);
+    if (!inputAcceptable && e.target.value) {
+      let savedPos = e.target.selectionStart;
+      e.target.value = e.target.value.replaceAll(/[^0-9]+/g, "");
+      e.target.selectionStart = savedPos-1;
+      e.target.selectionEnd = savedPos-1;
+      setError("Only numbers are allowed.");
+      return;
+    } else if (inputAcceptable) {
+      setError("");
+    }
+  }
 
   return (
     <>
@@ -34,7 +53,11 @@ export default function Index() {
           const month = document.querySelector("#month").value;
           const year = document.querySelector("#year").value;
           const validThru = `${month}/${year}`;
-          const number = number1 + number2 + number3 + number4;
+          const number =
+            number1.padEnd(4, "*") +
+            number2.padEnd(4, "*") +
+            number3.padEnd(4, "*") +
+            number4.padEnd(4, "*");
           const active = true;
           dispatch(
             updateCardPreview({
@@ -92,15 +115,7 @@ export default function Index() {
             <input
               key={i}
               onChange={(e) => {
-                let inputAcceptable = /^\d+$/.test(e.target.value);
-
-                if (!inputAcceptable && e.target.value) {
-                  e.target.value = e.target.value.replaceAll(/[^0-9]+/g, "");
-                  setError("Only numbers are allowed.");
-                  return;
-                } else if (inputAcceptable) {
-                  setError("");
-                }
+                checkIfValid(e);
                 if (i === 3) return;
                 if (e.target.value.length === 4) {
                   document.querySelector(`#number-${i + 2}`).focus();
@@ -166,6 +181,9 @@ export default function Index() {
           minLength="3"
           maxLength="3"
           required
+          onChange={(e) => {
+            checkIfValid(e);
+          }}
         />
         <div className="mt-8"></div>
         <button className="btn-blue">Submit</button>
