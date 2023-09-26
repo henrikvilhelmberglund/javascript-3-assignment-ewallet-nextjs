@@ -27,8 +27,8 @@ export default function Index() {
     if (!inputAcceptable && e.target.value) {
       let savedPos = e.target.selectionStart;
       e.target.value = e.target.value.replaceAll(/[^0-9]+/g, "");
-      e.target.selectionStart = savedPos-1;
-      e.target.selectionEnd = savedPos-1;
+      e.target.selectionStart = savedPos - 1;
+      e.target.selectionEnd = savedPos - 1;
       setError("Only numbers are allowed.");
       return;
     } else if (inputAcceptable) {
@@ -188,9 +188,11 @@ export default function Index() {
         <div className="mt-8"></div>
         <button className="btn-blue">Submit</button>
         {message ? (
-          <p className="absolute top-[97%] text-5xl text-white  text-center mx-auto bg-green-500 rounded-lg p-2">
-            {message}
-          </p>
+          <div className="flex justify-center">
+            <p className="absolute top-[97%] text-5xl text-white text-center bg-green-500 rounded-lg p-2">
+              {message}
+            </p>
+          </div>
         ) : null}
       </form>
     </>
