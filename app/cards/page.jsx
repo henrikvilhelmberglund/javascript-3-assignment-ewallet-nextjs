@@ -56,7 +56,6 @@ export default function Index() {
         </div>
         <p>Inactive cards:</p>
 
-        {/* TODO fix this jank */}
         <div className="relative -top-10 -left-55">
           {cards.map((card, i) => (
             <article className="relative" key={i}>

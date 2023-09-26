@@ -30,7 +30,6 @@ export default function Index() {
 
       <form
         onChange={(e) => {
-          // TODO DRY
           const { number1, number2, number3, number4, vendor, ccv, validThru } =
             getFormValues();
           const number =
