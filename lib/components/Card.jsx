@@ -29,21 +29,21 @@ export default function Card({
   let shouldBeHidden = active && allCards ? "!hidden" : "";
   if (vendor === "DuckCard") {
     cardStyle =
-      "from-green-400 to-green-700 bg-gradient-to-rb w-[440px] h-[270px] rounded-xl flex flex-col p-4 justify-between shadow-md shadow-green-800";
+      "from-green-400 to-green-700 bg-gradient-to-rb md:w-[440px] md:h-[270px] rounded-xl flex flex-col p-4 justify-between shadow-md shadow-green-800";
     iconStyle =
       "i-noto-duck bg-white border-white border-2 border-solid rounded-md h-16 w-16";
   } else if (vendor === "FishCard") {
     cardStyle =
-      "from-blue-400 to-blue-700 bg-gradient-to-b w-[440px] h-[270px] rounded-xl flex flex-col p-4 justify-between shadow-md shadow-blue-800";
+      "from-blue-400 to-blue-700 bg-gradient-to-b md:w-[440px] md:h-[270px] rounded-xl flex flex-col p-4 justify-between shadow-md shadow-blue-800";
     iconStyle = "i-noto-fish  h-16 w-16";
   } else if (vendor === "SvelteCard") {
     cardStyle =
-      "to-[#FF3E00] from-orange-500 from-1% to-50% bg-gradient-to-b w-[440px] h-[270px] rounded-xl flex flex-col p-4 justify-between shadow-md shadow-orange-800";
+      "to-[#FF3E00] from-orange-500 from-1% to-50% bg-gradient-to-b md:w-[440px] md:h-[270px] rounded-xl flex flex-col p-4 justify-between shadow-md shadow-orange-800";
     iconStyle = "i-devicon-svelte  h-16 w-16";
   }
   return (
     <button
-      className="relative"
+      className="relative group"
       title={`CCV is ${ccv}`}
       onClick={() => {
         if (!active) {
@@ -51,9 +51,18 @@ export default function Card({
           dispatch(setActiveCard({ i, newState: true }));
         }
       }}>
+      {active && !allCards ? (
+        <div className="group-hover:!absolute group-hover:!flex group-focus:!absolute group-focus:flex top-[60%] p-2 rounded-md items-center hidden">
+          <p id="explanation" className="text-xl text-white">
+            CCV: {ccv}
+          </p>
+        </div>
+      ) : null}
       <article
         className={`${cardStyle} ${
-          active === false ? `absolute top-[${i * 40}px] z-${i} left-0` : ""
+          active === false
+            ? `absolute left-11 top-[${i * 40}px] z-${i} md:left-0`
+            : ""
         } ${shouldBeHidden} `}>
         <header className="flex h-[40%]  justify-between ">
           <div className="flex flex-col items-center justify-center gap-1">
