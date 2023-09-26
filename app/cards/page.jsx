@@ -33,12 +33,15 @@ export default function Index() {
         <div className="">
           {cards.length > 3 ? (
             <div className="flex flex-col items-center gap-4">
-              <button disabled className="btn-red peer">
+              <button aria-describedby="explanation" className="btn-red peer">
                 Add new card
               </button>
-              <p className="text-lg hidden peer-hover:block">
-                You have too many cards. Please remove a card to add a new card.
-              </p>
+              <div className="peer-hover:!absolute peer-hover:flex peer-focus:!absolute peer-focus:flex top-[60%] bg-white border-red-500 border-1 p-2 rounded-md items-center hidden">
+                <p id="explanation" className="text-xl text-red-500">
+                  You have too many cards. Please remove a card to add a new
+                  card.
+                </p>
+              </div>
             </div>
           ) : (
             <div className="flex flex-col items-center gap-4">
