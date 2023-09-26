@@ -1,7 +1,7 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "/lib/components/Card";
-import { deleteCard } from "../../redux/ewalletSlice";
+import { deleteCard, resetCardPreview } from "../../redux/ewalletSlice";
 import React, { useContext } from "react";
 import Link from "next/link";
 import { NameContext } from "@/lib/components/NameProvider";
@@ -42,7 +42,10 @@ export default function Index() {
             </div>
           ) : (
             <div className="flex flex-col items-center gap-4">
-              <Link href="/addcard" className="btn-green">
+              <Link
+                onClick={() => dispatch(resetCardPreview())}
+                href="/addcard"
+                className="btn-green">
                 Add new card
               </Link>
             </div>
