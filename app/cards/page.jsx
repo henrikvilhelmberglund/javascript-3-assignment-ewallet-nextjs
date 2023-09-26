@@ -65,7 +65,8 @@ export default function Index() {
                 className={`${card.active === true ? "hidden" : ""}
                 } i-lucide-x absolute top-[${
                   i * 40 - 10
-                }px] z-100 -left-8 w-16 h-16 bg-red-500`}></button>
+                }px] z-100 -left-8 w-16 h-16 bg-red-600`}></button>
+
               <Card
                 {...card}
                 firstName={firstName}
