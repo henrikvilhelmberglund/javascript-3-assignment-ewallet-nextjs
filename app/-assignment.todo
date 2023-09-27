@@ -59,4 +59,4 @@ För att få Väl Godkänt ska du:
 
   ✔ Fälten när en kort läggs till ska valideras så att fältet kortnummer måste innehålla 16 siffror. Fältet för namn ska inte gå att fylla i, och förhandsvisningen av kortet ska istället alltid visa användarens namn som hämtats från API:et. @done(23-09-21 11:53)
 
-  ☐ Inga större buggar.
+  ✔ Inga större buggar. @done(23-09-27 17:34)
