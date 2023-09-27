@@ -1,6 +1,6 @@
 {
   "name": "javascript-3-assignment-ewallet-nextjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "release": "commit-and-tag-version",
-		"postrelease": "git push --follow-tags origin main"
+    "postrelease": "git push --follow-tags origin main"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
