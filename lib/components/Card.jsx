@@ -24,7 +24,7 @@ export default function Card({ number, validThru, vendor, ccv, i, active, allCar
 		iconStyle = tw`i-noto-fish  h-16 w-16`;
 	} else if (vendor === "SvelteCard") {
 		cardStyle = tw`flex flex-col justify-between rounded-xl bg-gradient-to-b from-orange-500 to-[#FF3E00] to-50% p-4 shadow-md shadow-orange-800 md:h-[270px] md:w-[440px]`;
-		iconStyle = "i-devicon-svelte  h-16 w-16";
+		iconStyle = tw`i-devicon-svelte  h-16 w-16`;
 	}
 	return (
 		<button
@@ -61,7 +61,7 @@ export default function Card({ number, validThru, vendor, ccv, i, active, allCar
 						</div>
 					</div>
 				</header>
-				<section className="flex justify-center gap-5  pb-4 text-3xl">
+				<section className="font-number flex justify-center gap-5 pb-4 text-3xl">
 					{cardParts.map((part, i) => (
 						<p key={i}>{part}</p>
 					))}
