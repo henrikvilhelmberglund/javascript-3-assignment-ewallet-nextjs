@@ -14,6 +14,7 @@ export default async function RootLayout({ children }) {
 					<span className="font-DuckCard"></span>
 					<span className="font-SvelteCard"></span>
 					<span className="font-FishCard"></span>
+					<span className="font-number"></span>
 				</div>
 				<div className="min-h-screen w-screen bg-gradient-to-b from-white to-sky-200 pb-52 dark:bg-sky-900">
 					<header>
