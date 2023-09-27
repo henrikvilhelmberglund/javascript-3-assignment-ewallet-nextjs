@@ -17,13 +17,13 @@ export default function Card({ number, validThru, vendor, ccv, i, active, allCar
 	// TODO this seems a bit stupid
 	let shouldBeHidden = active && allCards ? "!hidden" : `animate-card${i}`;
 	if (vendor === "DuckCard") {
-		cardStyle = tw`flex flex-col justify-between rounded-xl bg-gradient-to-br from-green-400 to-green-700 p-4 shadow-md shadow-green-800 md:h-[270px] md:w-[440px]`;
+		cardStyle = tw`flex flex-col justify-between rounded-xl bg-gradient-to-br from-green-400 to-green-700 p-4 shadow-md shadow-green-800 w-[340px] md:h-[270px] md:w-[440px]`;
 		iconStyle = tw`i-noto-duck h-16 w-16 rounded-md border-2 border-solid border-white bg-white`;
 	} else if (vendor === "FishCard") {
-		cardStyle = tw`flex flex-col justify-between rounded-xl bg-gradient-to-b from-blue-400 to-blue-700 p-4 shadow-md shadow-blue-800 md:h-[270px] md:w-[440px]`;
+		cardStyle = tw`flex flex-col justify-between rounded-xl bg-gradient-to-b from-blue-400 to-blue-700 p-4 shadow-md shadow-blue-800 w-[340px] md:h-[270px] md:w-[440px]`;
 		iconStyle = tw`i-noto-fish  h-16 w-16`;
 	} else if (vendor === "SvelteCard") {
-		cardStyle = tw`flex flex-col justify-between rounded-xl bg-gradient-to-b from-orange-500 to-[#FF3E00] to-50% p-4 shadow-md shadow-orange-800 md:h-[270px] md:w-[440px]`;
+		cardStyle = tw`flex flex-col justify-between rounded-xl bg-gradient-to-b from-orange-500 to-[#FF3E00] to-50% p-4 shadow-md shadow-orange-800 w-[340px] md:h-[270px] md:w-[440px]`;
 		iconStyle = tw`i-devicon-svelte  h-16 w-16`;
 	}
 	return (
@@ -61,7 +61,7 @@ export default function Card({ number, validThru, vendor, ccv, i, active, allCar
 						</div>
 					</div>
 				</header>
-				<section className="font-number flex justify-center gap-5 pb-4 text-3xl">
+				<section className="font-number flex justify-center gap-5 pb-4 md:text-3xl">
 					{cardParts.map((part, i) => (
 						<p key={i}>{part}</p>
 					))}
