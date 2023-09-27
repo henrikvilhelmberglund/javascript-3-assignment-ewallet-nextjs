@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.0](https://github.com/henrikvilhelmberglund/javascript-3-assignment-ewallet-nextjs/compare/v0.1.2...v1.0.0) (2023-09-27)
+
+
+### Features
+
+* :memo: update todo ([ecf0f19](https://github.com/henrikvilhelmberglund/javascript-3-assignment-ewallet-nextjs/commit/ecf0f19dbc7b81cb7202d00c25454a990f89ef9b))
+
 ## [0.1.2](https://github.com/henrikvilhelmberglund/javascript-3-assignment-ewallet-nextjs/compare/v0.1.1...v0.1.2) (2023-09-27)
 
 
