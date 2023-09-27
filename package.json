@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "release": "commit-and-tag-version",
-    "postrelease": "git push --follow-tags origin main"
+    "postrelease": "git push --follow-tags origin master"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
