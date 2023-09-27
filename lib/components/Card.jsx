@@ -15,7 +15,7 @@ export default function Card({ number, validThru, vendor, ccv, i, active, allCar
 	let cardStyle;
 	let iconStyle;
 	// TODO this seems a bit stupid
-	let shouldBeHidden = active && allCards ? "!hidden" : "";
+	let shouldBeHidden = active && allCards ? "!hidden" : "animate-card";
 	if (vendor === "DuckCard") {
 		cardStyle = tw`flex flex-col justify-between rounded-xl bg-gradient-to-br from-green-400 to-green-700 p-4 shadow-md shadow-green-800 md:h-[270px] md:w-[440px]`;
 		iconStyle = tw`i-noto-duck h-16 w-16 rounded-md border-2 border-solid border-white bg-white`;
@@ -28,7 +28,7 @@ export default function Card({ number, validThru, vendor, ccv, i, active, allCar
 	}
 	return (
 		<button
-			className="group relative"
+      className={tw`group relative`}
 			title={`CCV is ${ccv}`}
 			onClick={() => {
 				if (!active) {
