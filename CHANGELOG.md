@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.2](https://github.com/henrikvilhelmberglund/javascript-3-assignment-ewallet-nextjs/compare/v0.1.1...v0.1.2) (2023-09-27)
+
+
+### Bug Fixes
+
+* :bug: change branch name in script ([eaace49](https://github.com/henrikvilhelmberglund/javascript-3-assignment-ewallet-nextjs/commit/eaace49c69a9b5b70c4e7a7b2d8664937fabe450))
+
 ## 0.1.1 (2023-09-27)
 
 
