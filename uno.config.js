@@ -39,4 +39,18 @@ export default defineConfig({
 				`bg-${c}-400 text-${c}-800 text-xl p-4 rounded-lg transition-all hover:bg-${c}-300`,
 		],
 	],
+	theme: {
+		animation: {
+			keyframes: {
+				card: "{from{transform:translateY(-400px)}to{transform:translateY(0px)}}",
+			},
+			durations: {
+				// too buggy t_t
+				card: "0s",
+			},
+			timingFns: {
+				card: "ease-in-out",
+			},
+		},
+	},
 });
