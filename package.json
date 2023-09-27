@@ -25,6 +25,8 @@
     "@julr/unocss-preset-forms": "^0.0.5",
     "@unocss/postcss": "^0.56.2",
     "@unocss/reset": "^0.56.2",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
     "unocss": "^0.56.2"
   }
 }
