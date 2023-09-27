@@ -27,7 +27,7 @@ export default function Index() {
 							lastName={lastName}
 							allCards={false}
 							i={i}
-							key={i}
+							key={card.number}
 						></Card>
 					))}
 
@@ -68,7 +68,7 @@ export default function Index() {
 								className={`${card.active === true ? "hidden" : ""}
                 } i-lucide-x absolute top-[${
 									i * 40 - 10
-								}px] z-100 left-4 h-16 w-16 bg-red-600 md:-left-8`}
+								}px] z-100 left-4 h-16 w-16 bg-red-600 md:-left-8 animate-card${i}`}
 							></button>
 
 							<Card
