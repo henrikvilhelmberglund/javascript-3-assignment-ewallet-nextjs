@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "release": "commit-and-tag-version",
-    "postrelease": "git push --follow-tags origin master"
+    "postrelease": "git push --follow-tags origin master",
+    "deploy": "npx gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
