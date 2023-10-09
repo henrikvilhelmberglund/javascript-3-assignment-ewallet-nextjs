@@ -1,4 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = { output: "export", basePath: "/javascript-3-assignment-ewallet-nextjs" };
 
-module.exports = nextConfig
+module.exports = nextConfig;
